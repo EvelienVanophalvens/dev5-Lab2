@@ -10,6 +10,8 @@ export default class App{
     hookEvents(){
         // click event for the #add btn
         document.querySelector('#add').addEventListener('click', this.addMountain);
+        //click event for the #save btn
+        document.querySelector('#save').addEventListener('click', this.saveMountains);
     }
 
     addMountain(){
@@ -24,5 +26,24 @@ export default class App{
 
         mountain.render();
     }
+
+
+    //save the mountains to local storage
+    saveMountains(){
+        let mountains = document.querySelectorAll('.mountain');
+        let mountainArray = [];
+        mountains.forEach(mountain => {
+            let mountainObj = {
+                name: mountain.textContent,
+                color: mountain.style.backgroundColor,
+            }
+            mountainArray.push(mountainObj);
+        });
+        localStorage.setItem('mountains', JSON.stringify(mountainArray));
+
+        //consolelog the saved mountains
+        console.log(mountainArray);
+    }
+
    
 }

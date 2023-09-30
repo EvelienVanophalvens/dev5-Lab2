@@ -39,10 +39,9 @@ export default class Mountain{
             iterations: 1,
             fill: 'forwards',
         });
-
-
-
+    
     }
+
 
    
 }
