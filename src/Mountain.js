@@ -42,6 +42,11 @@ export default class Mountain{
     
     }
 
+    //remove the mountain from the screen
+    remove(){
+        document.querySelector('.mountain').remove();
+    }
+
 
    
 }

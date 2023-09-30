@@ -12,6 +12,8 @@ export default class App{
         document.querySelector('#add').addEventListener('click', this.addMountain);
         //click event for the #save btn
         document.querySelector('#save').addEventListener('click', this.saveMountains);
+        //click event for the #load btn
+        document.querySelector('#load').addEventListener('click', this.loadMountains);
     }
 
     addMountain(){
@@ -41,9 +43,22 @@ export default class App{
         });
         localStorage.setItem('mountains', JSON.stringify(mountainArray));
 
-        //consolelog the saved mountains
-        console.log(mountainArray);
+        //clear the mountains from the screen
+        document.querySelectorAll('.mountain').forEach(mountain => mountain.remove());
     }
 
+    //load the mountains from local storage
+    loadMountains(){
+        //clear the mountains from the screen
+        document.querySelectorAll('.mountain').forEach(mountain => mountain.remove());
+        
+        let mountains = JSON.parse(localStorage.getItem('mountains'));
+        mountains.forEach(mountain => {
+            let newMountain = new Mountain(mountain.name);
+            newMountain.render();
+            let div = document.querySelector('.mountain:last-child');
+            div.style.backgroundColor = mountain.color;
+        });
+    }
    
 }
