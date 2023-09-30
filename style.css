@@ -33,3 +33,17 @@ body{
     background-color: red;
     color: white;
 }
+
+.mountain{
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 150px;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
